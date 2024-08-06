@@ -1,0 +1,38 @@
+{% assign page_handle = page.handle %}
+{% if section.blocks.size > 0 %}
+{% for block in section.blocks %}
+{% if block.settings.page_handle == page_handle %}
+
+<div class="pagebnr">
+{% if block.settings.bottom-image != blank %}
+<img src="{{ block.settings.image | img_url: '' }}" />
+{% endif %}
+</div>
+
+{% endif %}
+{% endfor %}
+{% endif %}
+
+{% schema %}
+{
+"name": "Add Banner",
+"blocks": [
+{
+"type": "text_block",
+"name": "Select Page",
+"settings": [
+{
+"type": "page",
+"id": "page_handle",
+"label": "Select a page manual"
+},
+{
+"type": "image_picker",
+"id": "image",
+"label": "Image"
+}
+]
+}
+]
+}
+{% endschema %}

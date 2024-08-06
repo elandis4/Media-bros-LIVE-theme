@@ -1,0 +1,427 @@
+{% style %}
+
+    .bg-image{
+        opacity: {{ section.settings.bg_opacity }};
+        box-shadow: inset 0 0 0 1000px rgba(0,0,0,{{ section.settings.overlay_opacity }});
+    }
+
+    .quiz-container__inner-ctr {
+        box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, {{ section.settings.ctr_overlay_opacity }});
+    }
+
+{% endstyle %}
+
+<div class="quiz-outer-ctr__black-mask">
+    <div class="quiz-outer-container bg-image2">
+        <div class='quiz-container bg-image'>
+            <div class='quiz-container__inner-ctr'>
+                <div class="title-ctr intro-page hide">
+                    <h1 class="section__title-text --h1-big">Product Finder</h1>
+                    <div class="intro-description-ctr">
+                        <p class="choose-one">{{ section.settings.quiz_description }}</p>
+                    </div>
+                    <div class='start-button-ctr'>
+                        <div class='start-btn brand-btn' onclick="startQuiz()">{{ section.settings.intro_page_button }}</div>
+                    </div>
+                </div>
+                <div class="title-ctr question-one hide">
+                    <h2>What type of solvent are you using?</h2>
+                    <p class="choose-one">Please choose one</p>
+                    <div class='answers-container'>
+                        <div class='answer-div' onclick="hydrocarbonSelection()">Hydrocarbon</div>
+                        <div class='answer-div' onclick="CO2Selection()">CO2</div>
+                        <div class='answer-div' onclick="ethanolSelection()">Ethanol</div>
+                    </div>
+                    <div class='back-btn brand-btn' onclick="introPageBackBtn()">Back</div>
+                </div>
+                <div class="title-ctr question-three-halves hide">
+                    <h2>Do you require pesticide remediation?</h2>
+                    <p class="choose-one">Please choose one</p>
+                    <div class='answers-container'>
+                        <div class='answer-div' onclick="yesPesticideSelection()">Yes</div>
+                        <div class='answer-div' onclick="noPesticideSelection()">No</div>
+                    </div>
+                    <div class='back-btn brand-btn' onclick="solventBackBtn()">Back</div>
+                </div>
+                <div class="title-ctr question-two hide">
+                    <h2>What level of color remediation do you need?</h2>
+                    <p class="choose-one">Please choose one</p>
+                    <div class='answers-container'>
+                        <div class='answer-div' onclick="lightColorSelection()">Light/Low (orange, yellow)</div>
+                        <div class='answer-div' onclick="moderateColorSelection()">Moderate (red, brown)</div>
+                        <div class='answer-div' onclick="heavyColorSelection()">Heavy/High (black, dark)</div>
+                    </div>
+                    <div class='back-btn brand-btn' onclick="pesticideBackBtn()">Back</div>
+                </div>
+                <div class="title-ctr question-two-alt2 hide">
+                    <h2>What level of pesticide remediation do you require?</h2>
+                    <p class="choose-one">Please choose one</p>
+                    <div class='answers-container'>
+                        <div class='answer-div' onclick="heavyPesticideSelection()">Heavy</div>
+                        <div class='answer-div' onclick="lowPesticideSelection()">Low</div>
+                    </div>
+                    <div class='back-btn brand-btn' onclick="pesticideBackBtn2()">Back</div>
+                </div>
+                <div class="title-ctr question-two2 hide">
+                    <h2>What level of color remediation do you need?</h2>
+                    <p class="choose-one">Please choose one</p>
+                    <div class='answers-container'>
+                        <div class='answer-div' onclick="lightColorSelection2()">Light/Low (orange, yellow)</div>
+                        <div class='answer-div' onclick="heavyColorSelection2()">Heavy/High (black, dark)</div>
+                    </div>
+                    <div class='back-btn brand-btn' onclick="solventBackBtn2()">Back</div>
+                </div>
+                <div class="title-ctr question-two-alt hide">
+                    <svg width="58" height="31" viewBox="0 0 58 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0.883881 1.36392L29.5047 29.9848" stroke="white" stroke-width="2.5"/>
+                        <path d="M28.1473 29.7099L56.8571 1" stroke="white" stroke-width="2.5"/>
+                    </svg>
+                    <p class="choose-one">Please choose one</p>
+                    <div class='answers-container'>
+                        <div class='answer-div' onclick="inlineSelection()">Inline</div>
+                        <div class='answer-div' onclick="postProcessSelection()">Post Process</div>
+                    </div>
+                    <div class='back-btn brand-btn' onclick="solventBackBtn3()">Back</div>
+                </div>
+                <div class="title-ctr question-three-new hide">
+                    <h2>What flow rate do you need?</h2>
+                    <p class="choose-one">Please choose one</p>
+                    <div class='answers-container'>
+                        <div class='answer-div' onclick="granularSelection()">Granular (High Flow)</div>
+                        <div class='answer-div' onclick="powderedSelection()">Powdered (Medium Flow)</div>
+                    </div>
+                    <div class='back-btn brand-btn' onclick="colorBackBtn()">Back</div>
+                </div>
+                <div class="title-ctr question-three-new2 hide">
+                    <h2>What flow rate do you need?</h2>
+                    <p class="choose-one">Please choose one</p>
+                    <div class='answers-container'>
+                        <div class='answer-div' onclick="granularSelection2()">Granular (High Flow)</div>
+                        <div class='answer-div' onclick="powderedSelection2()">Powdered (Medium Flow)</div>
+                    </div>
+                    <div class='back-btn brand-btn' onclick="colorBackBtn1a()">Back</div>
+                </div>
+                <div class="title-ctr question-three-new3 hide">
+                    <h2>What flow rate do you need?</h2>
+                    <p class="choose-one">Please choose one</p>
+                    <div class='answers-container'>
+                        <div class='answer-div' onclick="granularSelection3()">Granular (High Flow)</div>
+                        <div class='answer-div' onclick="powderedSelection3()">Powdered (Medium Flow)</div>
+                    </div>
+                    <div class='back-btn brand-btn' onclick="colorBackBtn3()">Back</div>
+                </div>
+                <div class="title-ctr question-three-new4 hide">
+                    <h2>What flow rate do you need?</h2>
+                    <p class="choose-one">Please choose one</p>
+                    <div class='answers-container'>
+                        <div class='answer-div' onclick="granularSelection4()">Granular (High Flow)</div>
+                        <div class='answer-div' onclick="powderedSelection4()">Powdered (Medium Flow)</div>
+                    </div>
+                    <div class='back-btn brand-btn' onclick="colorBackBtn2()">Back</div>
+                </div>
+                <div class="title-ctr question-three-new5 hide">
+                    <h2>What flow rate do you need?</h2>
+                    <p class="choose-one">Please choose one</p>
+                    <div class='answers-container'>
+                        <div class='answer-div' onclick="granularSelection5()">Granular (High Flow)</div>
+                        <div class='answer-div' onclick="powderedSelection5()">Powdered (Medium Flow)</div>
+                    </div>
+                    <div class='back-btn brand-btn' onclick="colorBackBtn2a()">Back</div>
+                </div>
+                <div class="title-ctr question-three-new6 hide">
+                    <h2>What flow rate do you need?</h2>
+                    <p class="choose-one">Please choose one</p>
+                    <div class='answers-container'>
+                        <div class='answer-div' onclick="granularSelection6()">Granular (High Flow)</div>
+                        <div class='answer-div' onclick="powderedSelection6()">Powdered (Medium Flow)</div>
+                    </div>
+                    <div class='back-btn brand-btn' onclick="colorBackBtn2b()">Back</div>
+                </div>
+                <div class="title-ctr question-three-new7 hide">
+                    <h2>What flow rate do you need?</h2>
+                    <p class="choose-one">Please choose one</p>
+                    <div class='answers-container'>
+                        <div class='answer-div' onclick="granularSelection7()">Granular (High Flow)</div>
+                        <div class='answer-div' onclick="powderedSelection7()">Powdered (Medium Flow)</div>
+                    </div>
+                    <div class='back-btn brand-btn' onclick="pestLevelBackBtn()">Back</div>
+                </div>
+                <div class="title-ctr question-three-new8 hide">
+                    <h2>What flow rate do you need?</h2>
+                    <p class="choose-one">Please choose one</p>
+                    <div class='answers-container'>
+                        <div class='answer-div' onclick="granularSelection8()">Granular (High Flow)</div>
+                        <div class='answer-div' onclick="powderedSelection8()">Powdered (Medium Flow)</div>
+                    </div>
+                    <div class='back-btn brand-btn' onclick="pestLevelBackBtn2()">Back</div>
+                </div>
+            </div>
+        <!-- ----- RECOMMENDED PRODUCTS ----- -->
+
+            <div class="recommended-product hide">
+                <div class="retake-button" onclick="retakeQuiz()"><div>Retake Quiz</div></div>
+                <h2 class="completed-title section__title-text">{{ section.settings.completed_title }}</h2>
+                <div class="discount-offer">{{ section.settings.completed_description }}</div>
+                <div class="rec-product">
+                    <div class="rec-product-inner-ctr">
+                        <div class="CR41 quiz-product-card hide">
+                            <a href="/products/cr41-filter-media" class="quiz-product-link-ctr">
+                                <div class="quiz-product-img-ctr">
+                                    <img src="https://mediabros.store/cdn/shop/products/cr41-dish-shadow_1728x.png?v=1630946098">
+                                    <div class="slide-up-tab"><h6>Choose Options</h6></div>
+                                </div>
+                                <h3 class="product__title quiz-product-title">CR41™</h3>
+                                <p class="product__price quiz-product-price">From $55</p>
+                            </a>
+                        </div>
+                        <div class="Perform-5000 quiz-product-card hide">
+                            <a href="/products/perform-5000" class="quiz-product-link-ctr">
+                                <div class="quiz-product-img-ctr">
+                                    <img src="https://mediabros.store/cdn/shop/files/Perform5000_1728x.png?v=1684188711">
+                                    <div class="slide-up-tab"><h6>Choose Options</h6></div>
+                                </div>
+                                <h3 class="product__title quiz-product-title">Perform 5000</h3>
+                                <p class="product__price quiz-product-price">From $20</p>
+                            </a>
+                        </div>
+                        <div class="Perform-6000 quiz-product-card hide">
+                            <a href="/products/perform-6000" class="quiz-product-link-ctr">
+                                <div class="quiz-product-img-ctr">
+                                    <img src="https://mediabros.store/cdn/shop/files/Perform6000_1728x.png?v=1684189685">
+                                    <div class="slide-up-tab"><h6>Choose Options</h6></div>
+                                </div>
+                                <h3 class="product__title quiz-product-title">Perform 6000</h3>
+                                <p class="product__price quiz-product-price">From $20</p>
+                            </a>
+                        </div>
+                        <div class="CRY quiz-product-card hide">
+                            <a href="/products/cry-filter-media" class="quiz-product-link-ctr">
+                                <div class="quiz-product-img-ctr">
+                                    <img src="https://mediabros.store/cdn/shop/products/cry-dish-shadow_1728x.png?v=1630946532">
+                                    <div class="slide-up-tab"><h6>Choose Options</h6></div>
+                                </div>
+                                <h3 class="product__title quiz-product-title">CRY™</h3>
+                                <p class="product__price quiz-product-price">From $30</p>
+                            </a>
+                        </div>
+                        <div class="CRY-M quiz-product-card hide">
+                            <a href="/products/cry-medium-flow" class="quiz-product-link-ctr">
+                                <div class="quiz-product-img-ctr">
+                                    <img src="https://mediabros.store/cdn/shop/products/cry-dish-shadow_b40d7bac-53f8-4613-b763-d7449a79d519_1728x.png?v=1642814032">
+                                    <div class="slide-up-tab"><h6>Choose Options</h6></div>
+                                </div>
+                                <h3 class="product__title quiz-product-title">CRY™ Medium Flow</h3>
+                                <p class="product__price quiz-product-price">From $30</p>
+                            </a>
+                        </div>
+                        <div class="CRX quiz-product-card hide">
+                            <a href="/products/crx-filter-media" class="quiz-product-link-ctr">
+                                <div class="quiz-product-img-ctr">
+                                    <img src="https://mediabros.store/cdn/shop/products/crx-shadow_1728x.png?v=1630946518">
+                                    <div class="slide-up-tab"><h6>Choose Options</h6></div>
+                                </div>
+                                <h3 class="product__title quiz-product-title">CRX™</h3>
+                                <p class="product__price quiz-product-price">From $30</p>
+                            </a>
+                        </div>
+                        <div class="CRX-M quiz-product-card hide">
+                            <a href="/products/medium-flow-crx" class="quiz-product-link-ctr">
+                                <div class="quiz-product-img-ctr">
+                                    <img src="https://mediabros.store/cdn/shop/products/crx-m-dish-shadow_1728x.png?v=1630946524">
+                                    <div class="slide-up-tab"><h6>Choose Options</h6></div>
+                                </div>
+                                <h3 class="product__title quiz-product-title">CRX™ Medium Flow</h3>
+                                <p class="product__price quiz-product-price">From $30</p>
+                            </a>
+                        </div>
+                        <div class="B80 quiz-product-card hide">
+                            <a href="/products/b80" class="quiz-product-link-ctr">
+                                <div class="quiz-product-img-ctr">
+                                    <img src="https://mediabros.store/cdn/shop/files/B80_1728x.png?v=1684187856">
+                                    <div class="slide-up-tab"><h6>Choose Options</h6></div>
+                                </div>
+                                <h3 class="product__title quiz-product-title">B80</h3>
+                                <p class="product__price quiz-product-price">From $28.29</p>
+                            </a>
+                        </div>
+                        <div class="G-CRAC quiz-product-card hide">
+                            <a href="/products/g-crac-filter-media" class="quiz-product-link-ctr">
+                                <div class="quiz-product-img-ctr">
+                                    <img src="https://mediabros.store/cdn/shop/products/g-crac-dish-shadow_1728x.png?v=1630946540">
+                                    <div class="slide-up-tab"><h6>Choose Options</h6></div>
+                                </div>
+                                <h3 class="product__title quiz-product-title">G-CRAC™</h3>
+                                <p class="product__price quiz-product-price">From $75</p>
+                            </a>
+                        </div>
+                        <div class="PR-O quiz-product-card hide">
+                            <a href="/products/pr-o" class="quiz-product-link-ctr">
+                                <div class="quiz-product-img-ctr">
+                                    <img src="https://mediabros.store/cdn/shop/files/PR-O_1728x.png?v=1684186266">
+                                    <div class="slide-up-tab"><h6>Choose Options</h6></div>
+                                </div>
+                                <h3 class="product__title quiz-product-title">PR-O</h3>
+                                <p class="product__price quiz-product-price">From $48</p>
+                            </a>
+                        </div>
+                        <div class="PR-W quiz-product-card hide">
+                            <a href="/products/pr-w" class="quiz-product-link-ctr">
+                                <div class="quiz-product-img-ctr">
+                                    <img src="https://mediabros.store/cdn/shop/files/PR-W-Export_1728x.png?v=1685550020">
+                                    <div class="slide-up-tab"><h6>Choose Options</h6></div>
+                                </div>
+                                <h3 class="product__title quiz-product-title">PR-W</h3>
+                                <p class="product__price quiz-product-price">From $48</p>
+                            </a>
+                        </div>
+                        <div class="CRAC quiz-product-card hide">
+                            <a href="/products/crac-filter-media" class="quiz-product-link-ctr">
+                                <div class="quiz-product-img-ctr">
+                                    <img src="https://mediabros.store/cdn/shop/products/crac-dish-shadow_1728x.png?v=1630946306">
+                                    <div class="slide-up-tab"><h6>Choose Options</h6></div>
+                                </div>
+                                <h3 class="product__title quiz-product-title">CRAC™</h3>
+                                <p class="product__price quiz-product-price">From $75</p>
+                            </a>
+                        </div>
+                        <div class="SILICA-GEL quiz-product-card hide">
+                            <a href="/products/silica-gel-60a-filter-media" class="quiz-product-link-ctr">
+                                <div class="quiz-product-img-ctr">
+                                    <img src="https://mediabros.store/cdn/shop/products/cr60-dish-shadow-updated_1728x.png?v=1633044102">
+                                    <div class="slide-up-tab"><h6>Choose Options</h6></div>
+                                </div>
+                                <h3 class="product__title quiz-product-title">SILICA GEL 60A</h3>
+                                <p class="product__price quiz-product-price">From $29.46</p>
+                            </a>
+                        </div>
+                        <div class="Activated-Alumina quiz-product-card hide">
+                            <a href="/products/activated-alumina-filter-media" class="quiz-product-link-ctr">
+                                <div class="quiz-product-img-ctr">
+                                    <img src="https://mediabros.store/cdn/shop/products/crag-dish-shadow_1728x.png?v=1630946506">
+                                    <div class="slide-up-tab"><h6>Choose Options</h6></div>
+                                </div>
+                                <h3 class="product__title quiz-product-title">Activated Alumina</h3>
+                                <p class="product__price quiz-product-price">From $21</p>
+                            </a>
+                        </div>
+                        <div class="CR2 quiz-product-card hide">
+                            <a href="/products/cr2-filter-media" class="quiz-product-link-ctr">
+                                <div class="quiz-product-img-ctr">
+                                    <img src="https://mediabros.store/cdn/shop/products/cr2-dish-shadow_1728x.png?v=1630946270">
+                                    <div class="slide-up-tab"><h6>Choose Options</h6></div>
+                                </div>
+                                <h3 class="product__title quiz-product-title">CR2™</h3>
+                                <p class="product__price quiz-product-price">From $30</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="code-ctr">
+                        <p>{{ section.settings.code_description }}</p>
+                    </div>
+                    <p class="discount-limitation">{{ section.settings.discount_limitation }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    let quizDiscountCode = `{{ section.settings.discount_code }}`;
+    document.addEventListener('DOMContentLoaded', function(){
+        quizCompleteOrNot();
+        setTimeout(fadeInAnim(), 225);
+	});
+</script>
+
+
+{% schema %}
+    {
+        "name": "Product Finder Quiz",
+        "class": "product_finder_quiz",
+        "settings": [
+            {
+                "type": "range",
+                "id": "bg_opacity",
+                "min": 0,
+                "max": 1,
+                "step": 0.1,
+                "unit": "%",
+                "label": "BG Opacity",
+                "default": 1
+            },
+            {
+                "type": "range",
+                "id": "overlay_opacity",
+                "min": 0,
+                "max": 1,
+                "step": 0.1,
+                "unit": "%",
+                "label": "BG Overlay Opacity",
+                "default": 0
+            },
+            {
+                "type": "range",
+                "id": "ctr_overlay_opacity",
+                "min": 0,
+                "max": 1,
+                "step": 0.1,
+                "unit": "%",
+                "label": "CTR Overlay Opacity",
+                "default": 0.5
+            },
+            {
+                "type": "header",
+                "content": "Intro Page"
+            },
+            {
+                "type": "textarea",
+                "id": "quiz_description",
+                "label": "Description",
+                "default": "Not sure which product suits your needs? No worries, we got you. Take this quiz and we'll match you with the right filter media based on your specific needs."
+            },
+            {
+                "type": "text",
+                "id": "intro_page_button",
+                "label": "Button Text",
+                "default": "Start Quiz"
+            },
+            {
+                "type": "header",
+                "content": "Completed Page"
+            },
+            {
+                "type": "textarea",
+                "id": "completed_title",
+                "label": "Title",
+                "default": "Completed! Thank you for taking our product finder quiz!"
+            },
+            {
+                "type": "richtext",
+                "id": "completed_description",
+                "label": "Description",
+                "default": "<p>We want to reward you with a <strong>10% discount!</strong> Based on your needs, we recommend the product(s) below:</p>"
+            },
+            {
+                "type": "textarea",
+                "id": "code_description",
+                "label": "Code Description",
+                "default": "YOUR 10% DISCOUNT WILL BE APPLIED AT CHECKOUT"
+            },
+            {
+                "type": "textarea",
+                "id": "discount_limitation",
+                "label": "Discount Limitation",
+                "default": "*Limited to 1 use per customer"
+            },
+            {
+                "type": "text",
+                "id": "discount_code",
+                "label": "Discount Code",
+                "info": "IMPORTANT: This code has to match the discount code in the backend.",
+                "default": "MBQUIZ10"
+            }
+        ]
+    }
+{% endschema %}

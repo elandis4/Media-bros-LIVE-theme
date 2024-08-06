@@ -1,0 +1,289 @@
+{% case grid %}
+    {% when 1 %}
+        {%- assign sizes = '(min-width: 981px) 50vw, 100vw' -%}
+    {% when 2 %}
+        {%- assign sizes = '(min-width: 768px) 50vw, 100vw' -%}
+    {% when 3 %}
+        {%- assign sizes = '(min-width: 768px) 50vw, (min-width: 981px) 33vw, 100vw' -%}
+{% endcase %}
+<div class="blog{% unless article.image %} blog--no-image{% endunless %}{% unless show_date %} blog--no-date{% endunless %}">
+    {% comment %} {% if article.image %} {% endcomment %}
+        <div class="blog__media-wrapper">
+            <a {% case article %}
+                    {% when 'purity' %}
+                        href="https://mediabros.store/blogs/news/cannabis-filter-pros-and-cons"
+                    {% when 'flow' %}
+                        href="https://mediabros.store/blogs/news/flow-like-a-pro-achieving-the-ultimate-high-with-advanced-cannabis-extraction-flow-control-strategies"
+                    {% when 'distillate' %}
+                        href="https://mediabros.store/blogs/news/creating-cannabis-distillate"
+                    {% when 'thca' %}
+                        href="https://mediabros.store/blogs/news/5-interesting-diamond-concentration-facts"
+                    {% when 'diamonds' %}
+                        href="https://mediabros.store/blogs/news/cannabis-diamonds-and-how-they-are-made"
+                    {% when 'shatter' %}
+                        href="https://mediabros.store/blogs/news/shatter-101-what-is-shatter"
+                    {% when 'crc' %}
+                        href="//mediabros.store/blogs/news/crc-101-an-introduction-to-color-remediation"
+                    {% when 'resin' %}
+                        href="//mediabros.store/blogs/news/achieving-consistent-results-with-color-remediation-in-live-resin-production"
+                    {% when 'phovbho' %}
+                        href="//mediabros.store/blogs/news/pho-vs-bho-extraction-for-better-concentrate"
+                {% endcase %}
+                class="home-blog__link blog-link">
+                <div class="blog__media">
+                    {% if crop %}
+                    <div class="o-ratio o-ratio--custom" style="padding-bottom:55%;">
+                        <div class="o-ratio__content">
+                            <img
+                                class="home-blog__media-img blog__img"
+                                {% case article %}
+                                    {% when 'purity' %}
+                                        src="//mediabros.store/cdn/shop/articles/gold-thc-wax-in-hand_360x200_crop_center.jpg?v=1677609285"
+                                        srcset="
+                                            //mediabros.store/cdn/shop/articles/gold-thc-wax-in-hand_360x200_crop_center.jpg?v=1677609285 360w 200h,
+                                            //mediabros.store/cdn/shop/articles/gold-thc-wax-in-hand_540x300_crop_center.jpg?v=1677609285 540w 300h,
+                                            //mediabros.store/cdn/shop/articles/gold-thc-wax-in-hand_720x400_crop_center.jpg?v=1677609285 720w 400h,
+                                            //mediabros.store/cdn/shop/articles/gold-thc-wax-in-hand_900x500_crop_center.jpg?v=1677609285 900w 500h,
+                                            //mediabros.store/cdn/shop/articles/gold-thc-wax-in-hand_1080x600_crop_center.jpg?v=1677609285 1080w 600h,
+                                            //mediabros.store/cdn/shop/articles/gold-thc-wax-in-hand_1296x720_crop_center.jpg?v=1677609285 1296w 720h
+                                        "
+                                    {% when 'flow' %}
+                                        src="//mediabros.store/cdn/shop/articles/cannabis-vape-pen_360x200_crop_center.jpg?v=1680628076"
+                                        srcset="
+                                            //mediabros.store/cdn/shop/articles/cannabis-vape-pen_360x200_crop_center.jpg?v=1680628076 360w 200h,
+                                            //mediabros.store/cdn/shop/articles/cannabis-vape-pen_540x300_crop_center.jpg?v=1680628076 540w 300h,
+                                            //mediabros.store/cdn/shop/articles/cannabis-vape-pen_720x400_crop_center.jpg?v=1680628076 720w 400h,
+                                            //mediabros.store/cdn/shop/articles/cannabis-vape-pen_900x500_crop_center.jpg?v=1680628076 900w 500h,
+                                            //mediabros.store/cdn/shop/articles/cannabis-vape-pen_1080x600_crop_center.jpg?v=1680628076 1080w 600h,
+                                            //mediabros.store/cdn/shop/articles/cannabis-vape-pen_1296x720_crop_center.jpg?v=1680628076 1296w 720h
+                                        "
+                                    {% when 'distillate' %}
+                                        src="//mediabros.store/cdn/shop/articles/vials-of-cbd-oil-on-white-table_360x200_crop_center.jpg?v=1654876340"
+                                        srcset="
+                                            //mediabros.store/cdn/shop/articles/vials-of-cbd-oil-on-white-table_360x200_crop_center.jpg?v=1654876340 360w 200h,
+                                            //mediabros.store/cdn/shop/articles/vials-of-cbd-oil-on-white-table_540x300_crop_center.jpg?v=1654876340 540w 300h,
+                                            //mediabros.store/cdn/shop/articles/vials-of-cbd-oil-on-white-table_720x400_crop_center.jpg?v=1654876340 720w 400h,
+                                            //mediabros.store/cdn/shop/articles/vials-of-cbd-oil-on-white-table_900x500_crop_center.jpg?v=1654876340 900w 500h,
+                                            //mediabros.store/cdn/shop/articles/vials-of-cbd-oil-on-white-table_1080x600_crop_center.jpg?v=1654876340 1080w 600h,
+                                            //mediabros.store/cdn/shop/articles/vials-of-cbd-oil-on-white-table_1296x720_crop_center.jpg?v=1654876340 1296w 720h
+                                        "
+                                    {% when 'thca' %}
+                                        src="//mediabros.store/cdn/shop/articles/cannabis-extract-pen-with-thca-crystals_360x200_crop_center.jpg?v=1646952554"
+                                        srcset="
+                                            //mediabros.store/cdn/shop/articles/cannabis-extract-pen-with-thca-crystals_360x200_crop_center.jpg?v=1646952554 360w 200h,
+                                            //mediabros.store/cdn/shop/articles/cannabis-extract-pen-with-thca-crystals_540x300_crop_center.jpg?v=1646952554 540w 300h,
+                                            //mediabros.store/cdn/shop/articles/cannabis-extract-pen-with-thca-crystals_720x400_crop_center.jpg?v=1646952554 720w 400h,
+                                            //mediabros.store/cdn/shop/articles/cannabis-extract-pen-with-thca-crystals_900x500_crop_center.jpg?v=1646952554 900w 500h,
+                                            //mediabros.store/cdn/shop/articles/cannabis-extract-pen-with-thca-crystals_1080x600_crop_center.jpg?v=1646952554 1080w 600h,
+                                            //mediabros.store/cdn/shop/articles/cannabis-extract-pen-with-thca-crystals_1296x720_crop_center.jpg?v=1646952554 1296w 720h
+                                        "
+                                    {% when 'diamonds' %}
+                                        src="//mediabros.store/cdn/shop/articles/thca-crystals-on-spoon_360x200_crop_center.jpg?v=1646328062"
+                                        srcset="
+                                            //mediabros.store/cdn/shop/articles/thca-crystals-on-spoon_360x200_crop_center.jpg?v=1646328062 360w 200h,
+                                            //mediabros.store/cdn/shop/articles/thca-crystals-on-spoon_540x300_crop_center.jpg?v=1646328062 540w 300h,
+                                            //mediabros.store/cdn/shop/articles/thca-crystals-on-spoon_720x400_crop_center.jpg?v=1646328062 720w 400h,
+                                            //mediabros.store/cdn/shop/articles/thca-crystals-on-spoon_900x500_crop_center.jpg?v=1646328062 900w 500h,
+                                            //mediabros.store/cdn/shop/articles/thca-crystals-on-spoon_1080x600_crop_center.jpg?v=1646328062 1080w 600h,
+                                            //mediabros.store/cdn/shop/articles/thca-crystals-on-spoon_1296x720_crop_center.jpg?v=1646328062 1296w 720h
+                                        "
+                                    {% when 'shatter' %}
+                                        src="//mediabros.store/cdn/shop/articles/golden-dab-concentrate_360x200_crop_center.jpg?v=1688595542"
+                                        srcset="
+                                            //mediabros.store/cdn/shop/articles/golden-dab-concentrate_360x200_crop_center.jpg?v=1688595542 360w 200h,
+                                            //mediabros.store/cdn/shop/articles/golden-dab-concentrate_540x300_crop_center.jpg?v=1688595542 540w 300h,
+                                            //mediabros.store/cdn/shop/articles/golden-dab-concentrate_720x400_crop_center.jpg?v=1688595542 720w 400h,
+                                            //mediabros.store/cdn/shop/articles/golden-dab-concentrate_900x500_crop_center.jpg?v=1688595542 900w 500h,
+                                            //mediabros.store/cdn/shop/articles/golden-dab-concentrate_1080x600_crop_center.jpg?v=1688595542 1080w 600h,
+                                            //mediabros.store/cdn/shop/articles/golden-dab-concentrate_1296x720_crop_center.jpg?v=1688595542 1296w 720h
+                                        "
+                                    {% when 'crc' %}
+                                        src="//mediabros.store/cdn/shop/articles/BHO_Shatter_360x200_crop_center.jpg?v=1623689306"
+                                        srcset="
+                                            //mediabros.store/cdn/shop/articles/BHO_Shatter_360x200_crop_center.jpg?v=1623689306 360w 200h,
+                                            //mediabros.store/cdn/shop/articles/BHO_Shatter_540x300_crop_center.jpg?v=1623689306 540w 300h,
+                                            //mediabros.store/cdn/shop/articles/BHO_Shatter_720x400_crop_center.jpg?v=1623689306 720w 400h,
+                                            //mediabros.store/cdn/shop/articles/BHO_Shatter_900x500_crop_center.jpg?v=1623689306 900w 500h,
+                                            //mediabros.store/cdn/shop/articles/BHO_Shatter_1080x600_crop_center.jpg?v=1623689306 1080w 600h,
+                                            //mediabros.store/cdn/shop/articles/BHO_Shatter_1296x720_crop_center.jpg?v=1623689306 1296w 720h
+                                        "
+                                    {% when 'resin' %}
+                                        src="//mediabros.store/cdn/shop/articles/close-up-of-light-and-dark-cannabis-wax_360x200_crop_center.jpg?v=1683222976"
+                                        srcset="
+                                            //mediabros.store/cdn/shop/articles/close-up-of-light-and-dark-cannabis-wax_360x200_crop_center.jpg?v=1683222976 360w 200h,
+                                            //mediabros.store/cdn/shop/articles/close-up-of-light-and-dark-cannabis-wax_540x300_crop_center.jpg?v=1683222976 540w 300h,
+                                            //mediabros.store/cdn/shop/articles/close-up-of-light-and-dark-cannabis-wax_720x400_crop_center.jpg?v=1683222976 720w 400h,
+                                            //mediabros.store/cdn/shop/articles/close-up-of-light-and-dark-cannabis-wax_900x500_crop_center.jpg?v=1683222976 900w 500h,
+                                            //mediabros.store/cdn/shop/articles/close-up-of-light-and-dark-cannabis-wax_1080x600_crop_center.jpg?v=1683222976 1080w 600h,
+                                            //mediabros.store/cdn/shop/articles/close-up-of-light-and-dark-cannabis-wax_1296x720_crop_center.jpg?v=1683222976 1296w 720h
+                                        "
+                                    {% when 'phovbho' %}
+                                        src="//mediabros.store/cdn/shop/articles/extracting-cbd-oil_360x200_crop_center.jpg?v=1634926159"
+                                        srcset="
+                                            //mediabros.store/cdn/shop/articles/extracting-cbd-oil_360x200_crop_center.jpg?v=1634926159 360w 200h,
+                                            //mediabros.store/cdn/shop/articles/extracting-cbd-oil_540x300_crop_center.jpg?v=1634926159 540w 300h,
+                                            //mediabros.store/cdn/shop/articles/extracting-cbd-oil_720x400_crop_center.jpg?v=1634926159 720w 400h,
+                                            //mediabros.store/cdn/shop/articles/extracting-cbd-oil_900x500_crop_center.jpg?v=1634926159 900w 500h,
+                                            //mediabros.store/cdn/shop/articles/extracting-cbd-oil_1080x600_crop_center.jpg?v=1634926159 1080w 600h,
+                                            //mediabros.store/cdn/shop/articles/extracting-cbd-oil_1296x720_crop_center.jpg?v=1634926159 1296w 720h
+                                        "
+                                {% endcase %}
+                                sizes="{{ sizes }}"
+                                width="360"
+                                height="200"
+                                {% comment %} alt="{{ article.image.alt }}" {% endcomment %}
+                                loading="lazy"
+                            />
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="o-ratio o-ratio--custom" style="padding-bottom:{{ 1 | divided_by: article.image.aspect_ratio | times: 100 }}%;">
+                        <div class="o-ratio__content">
+                            <img
+                                class="home-blog__media-img blog__img"
+                                src="{{ article.image | img_url: '360x' }}"
+                                srcset="
+                                    {{ article.image | img_url: '360x' }} 360w {{ 360 | divided_by: article.image.aspect_ratio | round }}h,
+                                    {{ article.image | img_url: '540x' }} 540w {{ 540 | divided_by: article.image.aspect_ratio | round }}h,
+                                    {{ article.image | img_url: '720x' }} 720w {{ 720 | divided_by: article.image.aspect_ratio | round }}h,
+                                    {{ article.image | img_url: '900x' }} 900w {{ 900 | divided_by: article.image.aspect_ratio | round }}h,
+                                    {{ article.image | img_url: '1080x' }} 1080w {{ 1080 | divided_by: article.image.aspect_ratio | round }}h,
+                                    {{ article.image | img_url: '1296x' }} 1296w {{ 1296 | divided_by: article.image.aspect_ratio | round }}h
+                                "
+                                sizes="{{ sizes }}"
+                                width="360"
+                                height="{{ 360 | divided_by: article.image.aspect_ratio | round }}"
+                                alt="{{ article.image.alt }}"
+                                loading="lazy"
+                            />
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </a>
+        </div>
+    {% comment %} {% endif %} {% endcomment %}
+
+    <div class="blog__details --overrided-styles">
+        {% case article %}
+            {% when 'purity' %}
+                {% if show_date %}
+                    <div class="blog__date label label--brand"><p class="blog__date-text label__text">Feb 28, 2023</p></div>
+                {% endif %}
+                <a href="https://mediabros.store/blogs/news/cannabis-filter-pros-and-cons" class="home-blog__link blog-link">
+                    <h2 class="blog__title h4">The Quest For Purity - Pros and Cons of CRC Cannabis Filter Media</h2>
+                </a>
+                {% if show_author %}
+                    <div class="blog__author"><p class="blog__author__text">Sean Duffy</p></div>
+                {% endif %}
+                <div class="blog__text rte">In the world of cannabis extraction, color remediation is a crucial step in achieving high-quality, aesthetically pl...</div>
+            {% when 'flow' %}
+                {% if show_date %}
+                    <div class="blog__date label label--brand"><p class="blog__date-text label__text">April 4, 2023</p></div>
+                {% endif %}
+                <a href="https://mediabros.store/blogs/news/flow-like-a-pro-achieving-the-ultimate-high-with-advanced-cannabis-extraction-flow-control-strategies" class="home-blog__link blog-link">
+                    <h2 class="blog__title h4">Flow Like a Pro: Achieving the Ultimate High with Advanced Cannabis Extraction Flow Control Strategies</h2>
+                </a>
+                {% if show_author %}
+                    <div class="blog__author"><p class="blog__author__text">Sean Duffy</p></div>
+                {% endif %}
+                <div class="blog__text rte">From regulating flow rate and pressure to selecting the right filtration media, learn advanced flow control strategies to improve cannabis filtration.</div>
+            {% when 'distillate' %}
+                {% if show_date %}
+                    <div class="blog__date label label--brand"><p class="blog__date-text label__text">June 10, 2022</p></div>
+                {% endif %}
+                <a href="https://mediabros.store/blogs/news/creating-cannabis-distillate" class="home-blog__link blog-link">
+                    <h2 class="blog__title h4">Creating Cannabis Distillate: How Everything But the Cannabinoid Is Removed</h2>
+                </a>
+                {% if show_author %}
+                    <div class="blog__author"><p class="blog__author__text">Ox Content</p></div>
+                {% endif %}
+                <div class="blog__text rte">Cannabis distillate undergoes an extraction, winterization, decarboxylation, and a distillation process to remove all the undesirable compounds from the oil.</div>
+            {% when 'thca' %}
+                {% if show_date %}
+                    <div class="blog__date label label--brand"><p class="blog__date-text label__text">March 10, 2022</p></div>
+                {% endif %}
+                <a href="https://mediabros.store/blogs/news/5-interesting-diamond-concentration-facts" class="home-blog__link blog-link">
+                    <h2 class="blog__title h4">THCA Diamond Concentrate Facts That Will Blow Your Mind</h2>
+                </a>
+                {% if show_author %}
+                    <div class="blog__author"><p class="blog__author__text">Sean Duffy</p></div>
+                {% endif %}
+                <div class="blog__text rte">THCA diamonds are the purest and highest potency cannabinoid extracts on the market. Find out what makes them so special with these five interesting facts.</div>
+            {% when 'diamonds' %}
+                {% if show_date %}
+                    <div class="blog__date label label--brand"><p class="blog__date-text label__text">March 3, 2022</p></div>
+                {% endif %}
+                <a href="https://mediabros.store/blogs/news/cannabis-diamonds-and-how-they-are-made" class="home-blog__link blog-link">
+                    <h2 class="blog__title h4">A Guide to Cannabis Diamonds and How They Are Made</h2>
+                </a>
+                {% if show_author %}
+                    <div class="blog__author"><p class="blog__author__text">Sean Duffy</p></div>
+                {% endif %}
+                <div class="blog__text rte">Cannabis diamonds are the isolated, pure form of THCA or CBD, the plant's main cannabinoids. Learn more about these pure and potent minor cannabinoid products.</div>
+            {% when 'shatter' %}
+                {% if show_date %}
+                    <div class="blog__date label label--brand"><p class="blog__date-text label__text">July 5, 2023</p></div>
+                {% endif %}
+                <a href="https://mediabros.store/blogs/news/shatter-101-what-is-shatter" class="home-blog__link blog-link">
+                    <h2 class="blog__title h4">Shatter 101: What Is Shatter?</h2>
+                </a>
+                {% if show_author %}
+                    <div class="blog__author"><p class="blog__author__text">Ox Media</p></div>
+                {% endif %}
+                <div class="blog__text rte">Whether you’re a seasoned cannabis user or a newcomer, you’ve probably heard of shatter. This potent cannabis concen...</div>
+            {% when 'crc' %}
+                {% if show_date %}
+                    <div class="blog__date label label--brand"><p class="blog__date-text label__text">March 24, 2021</p></div>
+                {% endif %}
+                <a href="//mediabros.store/blogs/news/crc-101-an-introduction-to-color-remediation" class="home-blog__link blog-link">
+                    <h2 class="blog__title h4">CRC 101: An Introduction to Color Remediation</h2>
+                </a>
+                {% if show_author %}
+                    <div class="blog__author"><p class="blog__author__text">Media Bros</p></div>
+                {% endif %}
+                <div class="blog__text rte">Color remediation is the latest craze in cannabis extraction. It is not enough to extract cannabinoids and terpenes. ...</div>
+            {% when 'resin' %}
+                {% if show_date %}
+                    <div class="blog__date label label--brand"><p class="blog__date-text label__text">May 24, 2023</p></div>
+                {% endif %}
+                <a href="//mediabros.store/blogs/news/achieving-consistent-results-with-color-remediation-in-live-resin-production" class="home-blog__link blog-link">
+                    <h2 class="blog__title h4">Achieving Consistent Results with Color Remediation in Live Resin Production</h2>
+                </a>
+                {% if show_author %}
+                    <div class="blog__author"><p class="blog__author__text">Sean Duffy</p></div>
+                {% endif %}
+                <div class="blog__text rte">Master the art of color remediation in live resin production with our expert insights on best practices and Media Bros' game-changing filtration solutions.</div>
+            {% when 'phovbho' %}
+                {% if show_date %}
+                    <div class="blog__date label label--brand"><p class="blog__date-text label__text">Oct 22, 2021</p></div>
+                {% endif %}
+                <a href="//mediabros.store/blogs/news/pho-vs-bho-extraction-for-better-concentrate" class="home-blog__link blog-link">
+                    <h2 class="blog__title h4">PHO vs BHO Extraction: How to Produce Better Cannabis Concentrate</h2>
+                </a>
+                {% if show_author %}
+                    <div class="blog__author"><p class="blog__author__text">Ox Media</p></div>
+                {% endif %}
+                <div class="blog__text rte">In the world of cannabis extracts, there are a variety of methods processors can use to strip the cannabinoids and t...</div>
+        {% endcase %}
+
+        <div class="blog__meta">
+            {% if article.comments_enabled? and show_comments %}
+                <div class="blog__meta-comment blog__meta__item">
+                    <a href="{{ article.comment_post_url }}" class="blog__meta-comment__link">
+                        <div class="blog__meta-comment__icon">
+                            <i class="icon icon--comment" aria-hidden="true"></i>
+                        </div>
+                        <span class="blog__meta-comment__link-text">{{ article.comments_count }}</span>
+                    </a>
+                </div>
+            {% endif %}
+
+            {% if article.tags.size > 0 and show_tags %}
+                <div class="blog__meta-tags blog__meta__item">
+                    {% for tag in article.tags %}<a href="{{ blog.url }}/tagged/{{ tag | handle }}" class="blog__meta-tags__link">{{ tag }}</a>{% unless forloop.last %} / {% endunless %}{% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>

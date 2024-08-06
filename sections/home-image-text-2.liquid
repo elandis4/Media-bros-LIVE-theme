@@ -1,0 +1,327 @@
+<style>
+    .section--{{ section.id }} .home-intro__bg--overlay:before,
+    .section--{{ section.id }} .home-intro__bg--cover:before {
+        background: {{ section.settings.overlay_color }};
+        {% if section.settings.overlay_strength == 100 %}
+            opacity: 1;
+        {% else %}
+            opacity: .{{ section.settings.overlay_strength }};
+        {% endif %}
+    }
+    .section--{{ section.id }} .home-intro__media-img {
+        width: {{ section.settings.inline_image_width }}px
+    }
+    .home-intro.--padding-range {
+        padding-top: {{section.settings.padding_top}}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+    .--b-margin-big {
+        margin-bottom: {{section.settings.title_b_margin}}px;
+    }
+</style>
+<section class="section section--{{ section.id }} --less-b-margin" data-section-id="{{ section.id }}" data-section-type="home-intro">
+    <div class="container --hp-banner-width">
+        <div class="u-flex-parent">
+            <div class="home-intro home-intro--{{ section.settings.content_style }} home-intro--{{ section.settings.section_height }} u-flex u-flex--middle --centered --padding-range">
+                {% if section.settings.bg_image != blank %}
+                    <div class="home-intro__bg--cover u-bg-contain u-bg-overlay u-bg-overlay--white" style="background-image: url('{{ section.settings.bg_image | img_url: '1x1' }}')"></div>
+                    <img
+                        class="home-intro__bg home-intro__bg--{{ section.id }}"
+                        src="{{ section.settings.bg_image | img_url: '300x' }}"
+                        srcset="{% render 'bgset', image: section.settings.bg_image %}"
+                        width="300"
+                        height="{{ 300 | divided_by: section.settings.bg_image.aspect_ratio | round }}"
+                        alt="{{ section.settings.bg_image.alt }}"
+                        loading="lazy"
+                    />
+                {% else %}
+                    <style type="text/css">
+                    .section--{{ section.id }} .home-intro__bg--placeholder:before {
+                        background: {{ section.settings.overlay_color }};
+                    }
+                    </style>
+                    <div class="placeholder-svg__wrapper home-intro__bg home-intro__bg--placeholder u-bg-overlay u-bg-overlay--white u-bg-overlay--{{ section.settings.overlay_strength }}">
+                        {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                    </div>
+                {% endif %}
+                    <div class="home-intro__bg--overlay u-bg-overlay"></div>
+                        <div class="--stylized-underline">
+                            <div class="home-intro__content">
+                                <div class="home-rich-text">
+                                    <div class="container{% if section.settings.full_width %} container--medium{% else %} container--tiny{% endif %}">
+                                        {% if section.settings.section_title != blank %}
+                                            <div class="section__title section__title--desc section__title--center home-rich-text__title --b-margin-big">
+                                                <h2 class="section__title-text --h2-big">{{ section.settings.section_title | escape }}</h2>
+                                            </div>
+                                        {% endif %}
+                                        {% if section.settings.text != blank %}
+                                            <div class="home-rich-text__content u-text-center rte --p-big --b-margin-big2">
+                                                {{ section.settings.text }}
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                    {% unless section.settings.inline_image == blank %}
+                        <div class="home-intro__media --no-margin">
+                            {%- assign img_url = section.settings.inline_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                            <div class="--pos-rel">
+                                <img
+                                    class="home-intro__media-img"
+                                    src="{{ section.settings.inline_image | img_url: '300x' }}"
+                                    srcset="
+                                        {{ section.settings.inline_image | img_url: '180x' }} 180w {{ 180 | divided_by: section.settings.inline_image.aspect_ratio | round }}h,
+                                        {{ section.settings.inline_image | img_url: '360x' }} 360w {{ 360 | divided_by: section.settings.inline_image.aspect_ratio | round }}h,
+                                        {{ section.settings.inline_image | img_url: '540x' }} 540w {{ 540 | divided_by: section.settings.inline_image.aspect_ratio | round }}h,
+                                        {{ section.settings.inline_image | img_url: '720x' }} 720w {{ 720 | divided_by: section.settings.inline_image.aspect_ratio | round }}h,
+                                        {{ section.settings.inline_image | img_url: '900x' }} 900w {{ 900 | divided_by: section.settings.inline_image.aspect_ratio | round }}h,
+                                        {{ section.settings.inline_image | img_url: '1080x' }} 1080w {{ 1080 | divided_by: section.settings.inline_image.aspect_ratio | round }}h
+                                    "
+                                    width="300"
+                                    height="{{ 300 | divided_by: section.settings.inline_image.aspect_ratio | round }}"
+                                    alt="{{ section.settings.inline_image.alt }}"
+                                    loading="lazy"
+                                />
+                                {% unless section.settings.video == blank %}
+                                    {% capture video_url %}{% if section.settings.video.type == 'youtube' %}//www.youtube.com/watch?v={{ section.settings.video.id }}{% elsif section.settings.video.type == 'vimeo' %}//vimeo.com/{{ section.settings.video.id }}{% endif %}{% endcapture %}
+                                    <div class="home-intro__video --overlayed-play-btn">
+                                        <a href="{{ video_url }}" class="home-intro__btn c-btn c-btn--primary c-btn--play icon-fallback js-no-transition js-pop-video --no-margin">
+                                            <i class="icon icon--play" aria-hidden="true"></i>
+                                            <span class="icon-fallback__text">{{ 'sections.video.play_label' | t }}</span>
+                                        </a>
+                                    </div>
+                                {% endunless %}
+                            </div>
+                            {% comment %} <div class="home-intro__text --side-design">
+                                <div class="rte --text-centered">{{ section.settings.text }}</div>
+                            </div> {% endcomment %}
+                        </div>
+                    {% endunless %}
+                    {% comment %} <div class="home-intro__side-text">lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum</div> {% endcomment %}
+                    {% comment %} <div class="o-layout__item u-1/1 u-1/2@tab u-{{ grid_item_width }}@desk --more-padding">
+                        <div class="home-testimonials__item">
+                            <div class="home-testimonials__content --no-max-width">
+                                <div class="home-testimonials__media">
+                                    <img
+                                        class="home-testimonials__media__item home-testimonials__media__item--img"
+                                        src="{{ block.settings.image | img_url: '90x90' }}"
+                                        srcset="
+                                            {{ section.settings.logo | img_url: '50x' }} 50w {{ 50 | divided_by: section.settings.logo.aspect_ratio | round }}h,
+                                            {{ section.settings.logo | img_url: '90x' }} 90w {{ 90 | divided_by: section.settings.logo.aspect_ratio | round }}h,
+                                            {{ section.settings.logo | img_url: '180x' }} 180w  {{ 180 | divided_by: section.settings.logo.aspect_ratio | round }}h,
+                                            {{ section.settings.logo | img_url: '240x' }} 240w  {{ 240 | divided_by: section.settings.logo.aspect_ratio | round }}h
+                                        "
+                                        width="90"
+                                        height=" {{ 90 | divided_by: section.settings.logo.aspect_ratio | round }}"
+                                        alt="{{ section.settings.logo.alt | escape }}"
+                                        loading="lazy"
+                                    />
+                                </div>
+                                {% unless section.settings.testimonial_text == blank %}
+                                    <div class="home-testimonials__text">
+                                        <h2 class="home-testimonials__text__text">{{ section.settings.testimonial_text | escape }}</h2>
+                                    </div>
+                                {% endunless %}
+                                {% unless section.settings.testimonial_name == blank %}
+                                    <div class="home-testimonials__name">
+                                        <h3 class="home-testimonials__name__text">{{ section.settings.testimonial_name | escape }}</h3>
+                                    </div>
+                                {% endunless %}
+                                {% unless section.settings.source == blank %}
+                                    <div class="home-testimonials__source">
+                                        <p class="home-testimonials__source__text">{{ section.settings.source | escape }}</p>
+                                    </div>
+                                {% endunless %}
+                            </div>
+                        </div>
+                    </div> {% endcomment %}
+                    {% comment %} {% unless section.settings.video == blank %}
+                        {% capture video_url %}{% if section.settings.video.type == 'youtube' %}//www.youtube.com/watch?v={{ section.settings.video.id }}{% elsif section.settings.video.type == 'vimeo' %}//vimeo.com/{{ section.settings.video.id }}{% endif %}{% endcapture %}
+                        <div class="home-intro__video">
+                            <a href="{{ video_url }}" class="home-intro__btn c-btn c-btn--primary c-btn--play icon-fallback js-no-transition js-pop-video">
+                                <i class="icon icon--play" aria-hidden="true"></i>
+                                <span class="icon-fallback__text">{{ 'sections.video.play_label' | t }}</span>
+                            </a>
+                        </div>
+                    {% endunless %} {% endcomment %}
+
+                    {% comment %} {% unless section.settings.link == blank %}
+                        <div class="home-intro__link-wrap">
+                            <a href="{{ section.settings.link }}" class="link link--arrow home-intro__link">{{ section.settings.link_title | escape }}</a>
+                        </div>
+                    {% endunless %} {% endcomment %}
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "Image with text overlay 2",
+    "class": "js-section__home-intro",
+    "settings": [
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 50,
+            "step": 1,
+            "unit": "px",
+            "label": "Padding Top",
+            "default": 25
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Padding Bottom",
+            "default": 50
+        },
+        {
+            "type": "range",
+            "id": "title_b_margin",
+            "min": 0,
+            "max": 40,
+            "step": 1,
+            "unit": "px",
+            "label": "Margin Under Title",
+            "default": 20
+        },
+        {
+            "type": "text",
+            "id": "section_title",
+            "label": "Section Title",
+            "default": "Here Is Your Title"
+        },
+        {
+            "type": "image_picker",
+            "id": "bg_image",
+            "label": "Background image",
+            "info": "2200px width recommended."
+        },
+        {
+            "type": "select",
+            "id": "image_alignment",
+            "label": "Image alignment",
+            "default": "center",
+            "options": [
+                {
+                    "value": "top",
+                    "label": "Top"
+                },
+                {
+                    "value": "center",
+                    "label": "Middle"
+                },
+                {
+                    "value": "bottom",
+                    "label": "Bottom"
+                }
+            ]
+        },
+        {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text",
+            "default": "<p>Offer some insight into your brand and history. Use images, text and video to describe your value proposition.</p>"
+        },
+        {
+            "type": "image_picker",
+            "id": "inline_image",
+            "label": "Inline image"
+        },
+        {
+            "type": "range",
+            "id": "inline_image_width",
+            "label": "Inline image width",
+            "unit": "px",
+            "min": 50,
+            "max": 800,
+            "step": 10,
+            "default": 200
+        },
+        {
+            "type": "video_url",
+            "id": "video",
+            "label": "YouTube or Vimeo link",
+            "accept": [
+                "youtube", "vimeo"
+            ]
+        },
+        {
+            "type": "text",
+            "id": "link_title",
+            "label": "Link label",
+            "default": "Learn more"
+        },
+        {
+            "type": "url",
+            "id": "link",
+            "label": "Link"
+        },
+        {
+            "type": "select",
+            "id": "section_height",
+            "label": "Section height",
+            "options": [
+                {
+                    "label": "Small",
+                    "value": "small"
+                },
+                {
+                    "label": "Medium",
+                    "value": "medium"
+                },
+                {
+                    "label": "Large",
+                    "value": "large"
+                }
+            ],
+            "default": "small"
+        },
+        {
+            "type": "color",
+            "id": "overlay_color",
+            "label": "Overlay color",
+            "default": "#ffffff"
+        },
+        {
+            "type": "range",
+            "id": "overlay_strength",
+            "label": "Overlay strength",
+            "unit": "%",
+            "min": 0,
+            "max": 100,
+            "step": 10,
+            "default": 30
+        },
+        {
+            "type": "select",
+            "id": "content_style",
+            "label": "Text color",
+            "options": [
+                {
+                    "label": "Dark",
+                    "value": "dark"
+                },
+                {
+                    "label": "Light",
+                    "value": "light"
+                }
+            ],
+            "default": "dark"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Image with text overlay 2",
+            "category": "Image"
+        }
+    ]
+}
+{% endschema %}
